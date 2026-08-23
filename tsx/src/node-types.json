@@ -3506,6 +3506,10 @@
       "required": false,
       "types": [
         {
+          "type": "html_character_reference",
+          "named": true
+        },
+        {
           "type": "jsx_element",
           "named": true
         },
@@ -3863,7 +3867,7 @@
     "fields": {
       "object": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "expression",
@@ -3887,7 +3891,7 @@
       },
       "property": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "private_property_identifier",
@@ -3899,24 +3903,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "member_expression",
-          "named": true
-        },
-        {
-          "type": "property_identifier",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -4188,24 +4174,31 @@
   {
     "type": "nested_identifier",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "member_expression",
-          "named": true
-        },
-        {
-          "type": "property_identifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "object": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "member_expression",
+            "named": true
+          }
+        ]
+      },
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property_identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -5208,6 +5201,10 @@
       "types": [
         {
           "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "html_character_reference",
           "named": true
         },
         {
@@ -6461,6 +6458,10 @@
     "named": true
   },
   {
+    "type": "html_character_reference",
+    "named": true
+  },
+  {
     "type": "html_comment",
     "named": true
   },
@@ -6526,11 +6527,11 @@
   },
   {
     "type": "number",
-    "named": true
+    "named": false
   },
   {
     "type": "number",
-    "named": false
+    "named": true
   },
   {
     "type": "object",
