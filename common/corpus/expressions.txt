@@ -265,3 +265,56 @@ const ErrorMap = Map<string, Error>;
         (type_arguments
           (predefined_type)
           (type_identifier))))))
+
+==================================
+Template call expressions
+==================================
+
+for (let i: number = 0; i < 10; i++) {}
+for (let i: number = 0; blah<number>(i); i++) {}
+const job = await tx.$rawQuery<Job>`SELECT * FROM job`;
+
+---
+
+(program
+  (for_statement
+    initializer: (lexical_declaration
+      (variable_declarator
+        name: (identifier)
+        type: (type_annotation
+          (predefined_type))
+        value: (number)))
+    condition: (binary_expression
+      left: (identifier)
+      right: (number))
+    increment: (update_expression
+      argument: (identifier))
+    body: (statement_block))
+  (for_statement
+    initializer: (lexical_declaration
+      (variable_declarator
+        name: (identifier)
+        type: (type_annotation
+          (predefined_type))
+        value: (number)))
+    condition: (call_expression
+      function: (identifier)
+      type_arguments: (type_arguments
+        (predefined_type))
+      arguments: (arguments
+        (identifier)))
+    increment: (update_expression
+      argument: (identifier))
+    body: (statement_block))
+  (lexical_declaration
+    (variable_declarator
+      name: (identifier)
+      value: (call_expression
+        function: (await_expression
+          (member_expression
+            object: (identifier)
+            property: (property_identifier)))
+        type_arguments: (type_arguments
+          (type_identifier))
+        arguments: (template_string
+          (string_fragment))))))

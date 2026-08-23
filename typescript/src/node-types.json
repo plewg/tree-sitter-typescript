@@ -561,11 +561,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "accessibility_modifier",
+          "named": true
+        },
+        {
+          "type": "override_modifier",
           "named": true
         }
       ]
@@ -5362,19 +5366,11 @@
           "named": true
         },
         {
-          "type": "instantiation_expression",
-          "named": true
-        },
-        {
           "type": "member_expression",
           "named": true
         },
         {
           "type": "readonly_type",
-          "named": true
-        },
-        {
-          "type": "subscript_expression",
           "named": true
         }
       ]
@@ -5393,6 +5389,10 @@
           "named": true
         },
         {
+          "type": "call_expression",
+          "named": true
+        },
+        {
           "type": "constructor_type",
           "named": true
         },
@@ -5402,6 +5402,10 @@
         },
         {
           "type": "infer_type",
+          "named": true
+        },
+        {
+          "type": "member_expression",
           "named": true
         },
         {
