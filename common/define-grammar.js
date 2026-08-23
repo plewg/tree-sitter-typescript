@@ -383,6 +383,7 @@ module.exports = function defineGrammar(dialect) {
                         $.import_require_clause,
                         field("source", $.string),
                     ),
+                    optional($.import_attribute),
                     $._semicolon,
                 ),
 
@@ -1349,6 +1350,7 @@ module.exports = function defineGrammar(dialect) {
                     "export",
                     "object",
                     "new",
+                    "readonly",
                     previous,
                 ),
         },

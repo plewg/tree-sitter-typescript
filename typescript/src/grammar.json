@@ -542,6 +542,18 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "import_attribute"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "_semicolon"
         }
@@ -7105,6 +7117,10 @@
         {
           "type": "STRING",
           "value": "new"
+        },
+        {
+          "type": "STRING",
+          "value": "readonly"
         },
         {
           "type": "CHOICE",
