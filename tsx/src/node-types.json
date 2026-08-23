@@ -172,10 +172,6 @@
         "named": true
       },
       {
-        "type": "glimmer_template",
-        "named": true
-      },
-      {
         "type": "instantiation_expression",
         "named": true
       },
@@ -1552,11 +1548,6 @@
     }
   },
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "computed_property_name",
     "named": true,
     "fields": {},
@@ -2378,15 +2369,23 @@
         ]
       },
       "condition": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ";",
+            "named": false
+          },
           {
             "type": "empty_statement",
             "named": true
           },
           {
-            "type": "expression_statement",
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "sequence_expression",
             "named": true
           }
         ]
@@ -2414,11 +2413,15 @@
             "named": true
           },
           {
-            "type": "expression_statement",
+            "type": "expression",
             "named": true
           },
           {
             "type": "lexical_declaration",
+            "named": true
+          },
+          {
+            "type": "sequence_expression",
             "named": true
           },
           {
@@ -2842,42 +2845,6 @@
         "types": [
           {
             "type": "type_arguments",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "glimmer_closing_tag",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "glimmer_opening_tag",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "glimmer_template",
-    "named": true,
-    "fields": {
-      "close_tag": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "glimmer_closing_tag",
-            "named": true
-          }
-        ]
-      },
-      "open_tag": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "glimmer_opening_tag",
             "named": true
           }
         ]
@@ -3661,11 +3628,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "jsx_text",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "labeled_statement",
@@ -4739,6 +4701,7 @@
   {
     "type": "program",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -6230,10 +6193,6 @@
     "named": false
   },
   {
-    "type": "</template>",
-    "named": false
-  },
-  {
     "type": "<<",
     "named": false
   },
@@ -6243,10 +6202,6 @@
   },
   {
     "type": "<=",
-    "named": false
-  },
-  {
-    "type": "<template>",
     "named": false
   },
   {
@@ -6378,6 +6333,11 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
     "type": "const",
     "named": false
   },
@@ -6463,7 +6423,8 @@
   },
   {
     "type": "html_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "if",
@@ -6498,11 +6459,19 @@
     "named": false
   },
   {
+    "type": "jsx_text",
+    "named": true
+  },
+  {
     "type": "keyof",
     "named": false
   },
   {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "meta",
     "named": false
   },
   {
