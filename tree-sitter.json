@@ -5,8 +5,12 @@
       "camelcase": "TypeScript",
       "scope": "source.ts",
       "path": "typescript",
-      "external-files": ["common/scanner.h"],
-      "file-types": ["ts"],
+      "external-files": [
+        "common/scanner.h"
+      ],
+      "file-types": [
+        "ts"
+      ],
       "highlights": [
         "queries/highlights.scm",
         "node_modules/tree-sitter-javascript/queries/highlights.scm"
@@ -27,8 +31,12 @@
       "camelcase": "TSX",
       "scope": "source.tsx",
       "path": "tsx",
-      "external-files": ["common/scanner.h"],
-      "file-types": ["tsx"],
+      "external-files": [
+        "common/scanner.h"
+      ],
+      "file-types": [
+        "tsx"
+      ],
       "highlights": [
         "queries/highlights.scm",
         "node_modules/tree-sitter-javascript/queries/highlights-jsx.scm",
@@ -47,8 +55,12 @@
       "camelcase": "Flow",
       "scope": "source.js.flow",
       "path": "tsx",
-      "external-files": ["common/scanner.h"],
-      "file-types": ["js"],
+      "external-files": [
+        "common/scanner.h"
+      ],
+      "file-types": [
+        "js"
+      ],
       "highlights": [
         "queries/highlights.scm",
         "node_modules/tree-sitter-javascript/queries/highlights-jsx.scm",
