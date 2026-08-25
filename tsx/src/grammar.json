@@ -785,8 +785,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "with"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "with"
+            },
+            {
+              "type": "STRING",
+              "value": "assert"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -3793,17 +3802,54 @@
                 "type": "FIELD",
                 "name": "arguments",
                 "content": {
+                  "type": "SYMBOL",
+                  "name": "arguments"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC",
+          "value": "template_call",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
                   "type": "CHOICE",
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "arguments"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "template_string"
+                      "name": "expression"
                     }
                   ]
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "type_arguments",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_arguments"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "arguments",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "template_string"
                 }
               }
             ]
@@ -6418,6 +6464,15 @@
               },
               "named": true,
               "value": "call_expression"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "decorator_parenthesized_expression"
+              },
+              "named": true,
+              "value": "parenthesized_expression"
             }
           ]
         }
@@ -7352,18 +7407,18 @@
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "accessor"
             },
             {
-              "type": "BLANK"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "accessor"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         },
@@ -7798,6 +7853,46 @@
               "name": "_function_signature_automatic_semicolon"
             }
           ]
+        }
+      ]
+    },
+    "decorator_parenthesized_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "decorator_member_expression"
+              },
+              "named": true,
+              "value": "member_expression"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "decorator_call_expression"
+              },
+              "named": true,
+              "value": "call_expression"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
@@ -11074,6 +11169,10 @@
     [
       "class_static_block",
       "_property_name"
+    ],
+    [
+      "call_expression",
+      "instantiation_expression"
     ],
     [
       "call_expression",
